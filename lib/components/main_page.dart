@@ -128,6 +128,7 @@ SliverList(
               color: Colors.white,
               fontSize: 30.0,
             ),
+
             scrollAxis: Axis.horizontal,
             crossAxisAlignment: CrossAxisAlignment.start,
             blankSpace: 20.0,
