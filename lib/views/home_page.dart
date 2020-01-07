@@ -27,15 +27,15 @@ class _HomePageState extends State<HomePage> {
   BottomNavigationBarItem _buildNavigationItem(
       int index, IconData iconData, String text) {
     return BottomNavigationBarItem(
-      icon: Icon(iconData, color: Colors.black),
+      icon: Icon(iconData, color: Colors.white),
       activeIcon: Icon(
         iconData,
-        color: Color(0xffa62627),
+        color: Color(0xfff6d97d),
       ),
       title: Text(
         text,
         style: TextStyle(
-          color: _selectedIndex == index ? Color(0xffa62627) : Colors.black,
+          color: _selectedIndex == index ? Color(0xfff6d97d) : Colors.white,
         ),
       ),
     );
@@ -43,39 +43,11 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    var top = 0.0;
     return SafeArea(
       child: Scaffold(
-        body: CustomScrollView(
-          slivers: <Widget>[
-            SliverAppBar(
-              expandedHeight: 200,
-              floating: false,
-              pinned: true,
-              backgroundColor: Color(0xffa62627),
-              flexibleSpace: LayoutBuilder(
-                builder: (BuildContext context, BoxConstraints constraints) {
-                  top = constraints.biggest.height;
-                  return FlexibleSpaceBar(
-                    background: Image.asset(
-                      'assets/images/sunrays.jpg',
-                      fit: BoxFit.cover,
-                    ),
-                    title: top > 80
-                        ? Image.asset(
-                            'assets/images/logo/logo.png',
-                            fit: BoxFit.cover,
-                          )
-                        : Text('Balaji Temple,Ahmedabad'),
-                    centerTitle: true,
-                  );
-                },
-              ),
-            ),
-            _pages[_selectedIndex],
-          ],
-        ),
+        body: _pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
+          backgroundColor: Color(0xffa62627),
           onTap: (index) {
             setState(() {
               _selectedIndex = index;
