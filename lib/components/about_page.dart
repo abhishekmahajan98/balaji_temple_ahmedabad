@@ -1,4 +1,3 @@
-import 'package:balaji_temple_ahmedabad/components/long_texts.dart';
 import 'package:flutter/material.dart';
 
 class AboutPage extends StatefulWidget {
@@ -7,23 +6,39 @@ class AboutPage extends StatefulWidget {
 }
 
 class _AboutPageState extends State<AboutPage> {
+  var top = 0.0;
   @override
   Widget build(BuildContext context) {
-    return SliverList(
-      delegate: SliverChildListDelegate([
-        Container(
-          child: Image.asset(
-            'assets/images/balaji5.jpg',
-            fit: BoxFit.cover,
+    return CustomScrollView(
+      slivers: <Widget>[
+        SliverAppBar(
+          expandedHeight: MediaQuery.of(context).size.height / 5,
+          floating: false,
+          pinned: true,
+          backgroundColor: Color(0xffa62627),
+          flexibleSpace: LayoutBuilder(
+            builder: (BuildContext context, BoxConstraints constraints) {
+              top = constraints.biggest.height;
+              return FlexibleSpaceBar(
+                background: Image.asset(
+                  'assets/images/sunrays.jpg',
+                  fit: BoxFit.cover,
+                ),
+                title: top > 80
+                    ? Container(
+                        width: MediaQuery.of(context).size.width / 2,
+                        child: Image.asset(
+                          'assets/images/logo/logo.png',
+                          fit: BoxFit.cover,
+                        ),
+                      )
+                    : Text('Balaji Temple,Ahmedabad'),
+                centerTitle: true,
+              );
+            },
           ),
         ),
-        Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Card(
-            child: aboutText,
-          ),
-        ),
-      ]),
+      ],
     );
   }
 }
