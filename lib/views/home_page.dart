@@ -43,43 +43,53 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: CustomScrollView(
-        slivers: <Widget>[
-          SliverAppBar(
-            expandedHeight: 200,
-            floating: false,
-            pinned: true,
-            backgroundColor: Color(0xffa62627),
-            flexibleSpace: FlexibleSpaceBar(
-              background: Image.asset(
-                'assets/images/sunrays.jpg',
-                fit: BoxFit.cover,
+    var top = 0.0;
+    return SafeArea(
+      child: Scaffold(
+        body: CustomScrollView(
+          slivers: <Widget>[
+            SliverAppBar(
+              expandedHeight: 200,
+              floating: false,
+              pinned: true,
+              backgroundColor: Color(0xffa62627),
+              flexibleSpace: LayoutBuilder(
+                builder: (BuildContext context, BoxConstraints constraints) {
+                  top = constraints.biggest.height;
+                  return FlexibleSpaceBar(
+                    background: Image.asset(
+                      'assets/images/sunrays.jpg',
+                      fit: BoxFit.cover,
+                    ),
+                    title: top > 80
+                        ? Image.asset(
+                            'assets/images/logo/logo.png',
+                            fit: BoxFit.cover,
+                          )
+                        : Text('Balaji Temple,Ahmedabad'),
+                    centerTitle: true,
+                  );
+                },
               ),
-              title: Text(
-                'Balaji Temple,Ahmedabad',
-                style: TextStyle(color: Colors.black),
-              ),
-              centerTitle: true,
             ),
-          ),
-          _pages[_selectedIndex],
-        ],
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        onTap: (index) {
-          setState(() {
-            _selectedIndex = index;
-          });
-        },
-        currentIndex: _selectedIndex,
-        type: BottomNavigationBarType.fixed,
-        items: <BottomNavigationBarItem>[
-          _buildNavigationItem(0, Icons.home, _pageTitles[0]),
-          _buildNavigationItem(1, Icons.info, _pageTitles[1]),
-          _buildNavigationItem(2, FontAwesomeIcons.eye, _pageTitles[2]),
-          _buildNavigationItem(3, Icons.bookmark, _pageTitles[3]),
-        ],
+            _pages[_selectedIndex],
+          ],
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          onTap: (index) {
+            setState(() {
+              _selectedIndex = index;
+            });
+          },
+          currentIndex: _selectedIndex,
+          type: BottomNavigationBarType.fixed,
+          items: <BottomNavigationBarItem>[
+            _buildNavigationItem(0, Icons.home, _pageTitles[0]),
+            _buildNavigationItem(1, Icons.info, _pageTitles[1]),
+            _buildNavigationItem(2, FontAwesomeIcons.eye, _pageTitles[2]),
+            _buildNavigationItem(3, Icons.bookmark, _pageTitles[3]),
+          ],
+        ),
       ),
     );
   }
