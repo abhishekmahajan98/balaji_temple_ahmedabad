@@ -2,6 +2,7 @@ import 'package:balaji_temple_ahmedabad/components/about_page.dart';
 import 'package:balaji_temple_ahmedabad/components/darshan_time_page.dart';
 import 'package:balaji_temple_ahmedabad/components/eseva_page.dart';
 import 'package:balaji_temple_ahmedabad/components/main_page.dart';
+import 'package:balaji_temple_ahmedabad/components/side_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -45,6 +46,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return SafeArea(
       child: Scaffold(
+        drawer: SideDrawer(),
         body: _pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xffa62627),

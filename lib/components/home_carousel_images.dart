@@ -5,8 +5,8 @@ List homeCarouselImages = [
 ];
 
 List aboutCarouselImages=[
+  'assets/templeImages/img1.JPG',
   'assets/templeImages/img2.jpg',
-  'assets/templeImages/img2.jpg',
-  'assets/templeImages/img2.jpg',
+  'assets/templeImages/img3.JPG',
 
 ];
