@@ -44,7 +44,7 @@ class _MainPageState extends State<MainPage> {
         SliverList(
           delegate: SliverChildListDelegate([
             Container(
-              height: MediaQuery.of(context).size.height / 10,
+              height: MediaQuery.of(context).size.height / 12,
               width: MediaQuery.of(context).size.width,
               color: Color(0xffa62627),
               alignment: Alignment.center,
@@ -56,7 +56,7 @@ class _MainPageState extends State<MainPage> {
                   fontSize: 30.0,
                 ),
                 scrollAxis: Axis.horizontal,
-                crossAxisAlignment: CrossAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 blankSpace: 20.0,
                 velocity: 100.0,
                 pauseAfterRound: Duration(seconds: 1),
