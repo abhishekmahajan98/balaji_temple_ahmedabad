@@ -1,5 +1,3 @@
-import 'dart:html';
-
 import 'package:balaji_temple_ahmedabad/components/year_box.dart';
 import 'package:balaji_temple_ahmedabad/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
