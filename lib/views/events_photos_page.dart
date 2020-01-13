@@ -4,8 +4,9 @@ import 'package:rflutter_alert/rflutter_alert.dart';
 import '../constants.dart';
 
 class EventPhotosGrid extends StatefulWidget {
-  EventPhotosGrid({@required this.eventPhotosList, @required this.eventName});
-  final List eventPhotosList;
+  EventPhotosGrid(
+      {@required this.eventPhotosUrlList, @required this.eventName});
+  final List eventPhotosUrlList;
   final String eventName;
 
   @override
@@ -67,27 +68,41 @@ class _EventPhotosGridState extends State<EventPhotosGrid> {
                     onTap: () {
                       Alert(
                         context: context,
-                        title: 'Event Image',
+                        title: widget.eventName.toString(),
                         content: Container(
-                          child: Image.asset(
-                            widget.eventPhotosList[index].toString(),
+                          child: Image.network(
+                            widget.eventPhotosUrlList[index].toString(),
                             height: 300,
                             width: 300,
                             fit: BoxFit.fill,
+                            loadingBuilder: (context, child, progress) {
+                              return progress == null
+                                  ? child
+                                  : LinearProgressIndicator(
+                                      backgroundColor: mainColor,
+                                    );
+                            },
                           ),
                         ),
                         buttons: [],
                         closeFunction: () {},
                       ).show();
                     },
-                    child: Image.asset(
-                      widget.eventPhotosList[index].toString(),
+                    child: Image.network(
+                      widget.eventPhotosUrlList[index].toString(),
                       fit: BoxFit.fill,
+                      loadingBuilder: (context, child, progress) {
+                        return progress == null
+                            ? child
+                            : LinearProgressIndicator(
+                                backgroundColor: mainColor,
+                              );
+                      },
                     ),
                   ),
                 );
               },
-              childCount: widget.eventPhotosList.length,
+              childCount: widget.eventPhotosUrlList.length,
             ),
           ),
         ],

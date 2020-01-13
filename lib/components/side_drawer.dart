@@ -43,7 +43,7 @@ class SideDrawer extends StatelessWidget {
               Navigator.pushNamed(context, '/trustees');
             }),
             drawerMember('Awards and Appreciations', () {
-              Navigator.pushNamed(context, '/');
+              Navigator.pushNamed(context, '/awards_page');
             }),
             drawerMember('Facilites at Temple', () {
               Navigator.pushNamed(context, '/facilities_page');

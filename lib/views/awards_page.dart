@@ -1,20 +1,18 @@
-import 'dart:html';
-
-import 'package:balaji_temple_ahmedabad/components/year_box.dart';
+import 'package:balaji_temple_ahmedabad/components/award_box.dart';
 import 'package:balaji_temple_ahmedabad/constants.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 final _firestore = Firestore.instance;
 
-class GalleryPage extends StatefulWidget {
+class AwardsAndAppreciationPage extends StatefulWidget {
   @override
-  _GalleryPageState createState() => _GalleryPageState();
+  _AwardsAndAppreciationPageState createState() =>
+      _AwardsAndAppreciationPageState();
 }
 
-class _GalleryPageState extends State<GalleryPage> {
+class _AwardsAndAppreciationPageState extends State<AwardsAndAppreciationPage> {
   var top = 0.0;
-
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -51,10 +49,7 @@ class _GalleryPageState extends State<GalleryPage> {
             ),
           ),
           StreamBuilder(
-            stream: _firestore
-                .collection('gallery images')
-                .orderBy('year', descending: true)
-                .snapshots(),
+            stream: _firestore.collection('awards').snapshots(),
             builder: (context, snapshot) {
               if (!snapshot.hasData) {
                 return SliverFillRemaining(
@@ -65,15 +60,15 @@ class _GalleryPageState extends State<GalleryPage> {
                   ),
                 );
               }
-              final yearsDocuments = snapshot.data.documents;
-              List<YearBox> yearsList = [];
-              for (var document in yearsDocuments) {
-                final year = document.data['year'];
-                final eventsList = document.data['events'];
-                yearsList.add(
-                  YearBox(
-                    year: year,
-                    eventsList: eventsList,
+              final awardsDocuments = snapshot.data.documents;
+              List<AwardBox> awards = [];
+              for (var document in awardsDocuments) {
+                final awardTitle = document.data['title'];
+                final awardImageUrl = document.data['image_url'];
+                awards.add(
+                  AwardBox(
+                    awardTitle: awardTitle,
+                    awardImageUrl: awardImageUrl,
                   ),
                 );
               }
@@ -81,7 +76,7 @@ class _GalleryPageState extends State<GalleryPage> {
                 gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
                   crossAxisCount: 2,
                 ),
-                delegate: SliverChildListDelegate(yearsList),
+                delegate: SliverChildListDelegate(awards),
               );
             },
           ),

@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
     return SafeArea(
       child: Scaffold(
         drawer: SideDrawer(),
-        body: _pages[0],
+        body: _pages[_selectedIndex],
         bottomNavigationBar: BottomNavigationBar(
           backgroundColor: Color(0xffa62627),
           onTap: (index) {

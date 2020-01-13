@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../constants.dart';
 
 class EventsGrid extends StatefulWidget {
-  EventsGrid({@required this.yearMap});
-  final Map yearMap;
+  EventsGrid({@required this.eventsList});
+  final List eventsList;
 
   @override
   _EventsGridState createState() => _EventsGridState();
@@ -60,7 +60,7 @@ class _EventsGridState extends State<EventsGrid> {
                   child: RaisedButton(
                     color: mainColor,
                     child: Text(
-                      widget.yearMap['events'][index]['title'],
+                      widget.eventsList[index]['title'].toString(),
                       style: kTitleTextStyle,
                     ),
                     onPressed: () {
@@ -68,9 +68,9 @@ class _EventsGridState extends State<EventsGrid> {
                         context,
                         MaterialPageRoute(
                           builder: (BuildContext context) => EventPhotosGrid(
-                            eventPhotosList: widget.yearMap['events'][index]
+                            eventName: widget.eventsList[index]['title'],
+                            eventPhotosUrlList: widget.eventsList[index]
                                 ['images_url'],
-                            eventName: widget.yearMap['events'][index]['title'],
                           ),
                         ),
                       );
@@ -78,7 +78,7 @@ class _EventsGridState extends State<EventsGrid> {
                   ),
                 );
               },
-              childCount: widget.yearMap['events'].length,
+              childCount: widget.eventsList.length,
             ),
           ),
         ],
