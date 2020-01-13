@@ -1,8 +1,9 @@
 import 'package:balaji_temple_ahmedabad/components/about_page.dart';
 import 'package:balaji_temple_ahmedabad/components/darshan_time_page.dart';
-import 'package:balaji_temple_ahmedabad/components/eseva_page.dart';
+import 'package:balaji_temple_ahmedabad/components/gallery.dart';
 import 'package:balaji_temple_ahmedabad/components/main_page.dart';
 import 'package:balaji_temple_ahmedabad/components/side_drawer.dart';
+import 'package:balaji_temple_ahmedabad/components/unjal_seva_page.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
@@ -17,13 +18,15 @@ class _HomePageState extends State<HomePage> {
     'Home',
     'About',
     'Darshan',
-    'E-seva',
+    'Gallery',
+    'Unjal Seva'
   ];
   final List<Widget> _pages = [
     MainPage(),
     AboutPage(),
     DarshanTimePage(),
-    EsevaPage(),
+    GalleryPage(),
+    UnjalSevaPage(),
   ];
   BottomNavigationBarItem _buildNavigationItem(
       int index, IconData iconData, String text) {
@@ -61,7 +64,9 @@ class _HomePageState extends State<HomePage> {
             _buildNavigationItem(0, Icons.home, _pageTitles[0]),
             _buildNavigationItem(1, Icons.info, _pageTitles[1]),
             _buildNavigationItem(2, FontAwesomeIcons.eye, _pageTitles[2]),
-            _buildNavigationItem(3, Icons.bookmark, _pageTitles[3]),
+            _buildNavigationItem(3, Icons.photo, _pageTitles[3]),
+            _buildNavigationItem(
+                4, FontAwesomeIcons.prayingHands, _pageTitles[4]),
           ],
         ),
       ),

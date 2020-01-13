@@ -148,10 +148,8 @@ class _AboutPageState extends State<AboutPage> {
                     ),
                   ),
                   Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: Card(
-                      child: aboutText,
-                    ),
+                    padding: const EdgeInsets.all(20.0),
+                    child: aboutText,
                   ),
                   Container(
                     width: MediaQuery.of(context).size.width,
