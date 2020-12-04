@@ -110,7 +110,7 @@ class _MainPageState extends State<MainPage> {
                             enlargeCenterPage: true,
                             enableInfiniteScroll: true,
                             autoPlay: true,
-                            autoPlayInterval: Duration(seconds: 1),
+                            autoPlayInterval: Duration(seconds: 5),
                             items: <Widget>[
                               Center(
                                 child: CircularProgressIndicator(

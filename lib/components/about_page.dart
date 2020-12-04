@@ -192,21 +192,21 @@ class _AboutPageState extends State<AboutPage> {
                                     Icon(
                                       FontAwesomeIcons.facebook,
                                       color: Colors.white,
-                                      size: 60,
+                                      size: 40,
                                     ),
                                     _launchFacebookURL),
                                 infoIcon(
                                     Icon(
                                       FontAwesomeIcons.youtube,
                                       color: Colors.white,
-                                      size: 60,
+                                      size: 40,
                                     ),
                                     _launchYoutubeURL),
                                 infoIcon(
                                     Icon(
                                       FontAwesomeIcons.globe,
                                       color: Colors.white,
-                                      size: 60,
+                                      size: 40,
                                     ),
                                     _launchWebsiteURL),
                               ],

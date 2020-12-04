@@ -42,21 +42,21 @@ class SideDrawer extends StatelessWidget {
             drawerMember('Trustees and Priests', () {
               Navigator.pushNamed(context, '/trustees');
             }),
-            drawerMember('Awards and Appreciations', () {
+            /*drawerMember('Awards and Appreciations', () {
               Navigator.pushNamed(context, '/awards_page');
-            }),
+            }),*/
             drawerMember('Facilites at Temple', () {
               Navigator.pushNamed(context, '/facilities_page');
             }),
-            drawerMember('Festivals celebrated at The Temple', () {
+           /* drawerMember('Festivals celebrated at The Temple', () {
               Navigator.pushNamed(context, '/');
-            }),
+            }),*/
             drawerMember('DHARMAKARTHAS WORDS', () {
               Navigator.pushNamed(context, '/dharmakarthas_words_page');
             }),
-            drawerMember('SOCIAL SERVICE UNIT', () {
+           /* drawerMember('SOCIAL SERVICE UNIT', () {
               Navigator.pushNamed(context, '/');
-            }),
+            }),*/
           ],
         ),
       ),
